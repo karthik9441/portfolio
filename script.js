@@ -256,8 +256,14 @@ document.addEventListener('DOMContentLoaded', () => {
 async function handleResumeDownload(e) {
     e.preventDefault();
     
-    const fileId = '1TzFRNK8Nhu24YLZQpWEG55kV3iCy_Xwn';
-    const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
-    
-    window.location.href = downloadUrl;
+    try {
+        const fileId = '1TzFRNK8Nhu24YLZQpWEG55kV3iCy_Xwn';
+        // Use the direct download link format
+        const downloadUrl = `https://drive.google.com/file/d/${fileId}/view?usp=sharing`;
+        
+        // Open in new tab for better download experience
+        window.open(downloadUrl, '_blank');
+    } catch (error) {
+        console.error('Error downloading resume:', error);
+    }
 } 
