@@ -257,7 +257,7 @@ async function handleResumeDownload(e) {
     e.preventDefault();
     
     try {
-        const fileId = '1TzFRNK8Nhu24YLZQpWEG55kV3iCy_Xwn';
+        const fileId = '1Irc8mlAkszCZeBBkJmY04pbRXatqHnV0';
         // Use the direct download link format
         const downloadUrl = `https://drive.google.com/file/d/${fileId}/view?usp=sharing`;
         
