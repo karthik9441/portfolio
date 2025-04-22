@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Karthik's Portfolio - Cloud & DevOps Engineer">
+    <meta name="theme-color" content="#0a0a1a">
+    <title>Gudavalli Karthik - Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://img.icons8.com/ios-filled/50/FFFFFF/k.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://img.icons8.com/ios-filled/50/FFFFFF/k.png">
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">Portfolio</a>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#work">Projects</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="profile-container">
+                <div class="profile-image">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQFJ5emCGfr6jg/profile-displayphoto-shrink_800_800/B56ZYVbZXLHQAc-/0/1744116226469?e=1750291200&v=beta&t=qDgfUuMCZZ3IAfxTyyWskT320L4-MvTL5bFx8qCIcQA" alt="Profile Image">
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1>Karthik</h1>
+                <div class="tech-stack">
+                    <span>Cloud Computing</span>
+                    <span>DevOps</span>
+                    <span>Web Development</span>
+                </div>
+                <div class="portfolio-note">
+                    <p>Built this portfolio in just a few minutes using AI tools, showcasing the projects I've worked on and the skills I'm developing through hands-on experience.</p>
+                </div>
+                <div class="tagline-container">
+                    <div class="scrolling-tagline">
+                        <span>Built this portfolio in 10 minutes</span>
+                        <span>Powered by AI innovation</span>
+                        <span>Modern web development</span>
+                        <span>Future-ready design</span>
+                    </div>
+                </div>
+                <div class="hero-links">
+                    <a href="mailto:karthikgudavalli7@gmail.com" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/karthikgudavalli" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/karthik9441" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <div class="action-buttons">
+                    <a href="#" class="action-button" id="shareButton">
+                        <i class="fas fa-share-alt"></i>
+                        Share Portfolio
+                    </a>
+                    <a href="#" class="action-button" id="resumeButton">
+                        <i class="fas fa-download"></i>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a Cloud and DevOps learner with real project experience and an interest in front end development. I have hands-on experience with AWS services, Docker, and Linux systems. Ready to leverage my skills in practical cloud and DevOps roles to contribute to innovative projects and systems.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>Cloud Architecture</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>DevOps Practices</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-code"></i>
+                            <span>Frontend Development</span>
+                        </div>
+                    </div>
+                    <div class="professional-focus">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Cloud and DevOps learner with real project experience and interest in front end development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="section-container">
+            <h2>My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS Services</span>
+                            <p>EC2, S3, IAM, RDS, VPC, EBS, EFS, Route 53, CloudFront</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                            <p>Image creation, volumes, container deployment, Docker Hub integration</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git & GitHub</span>
+                            <p>Version control and collaborative development</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-linux"></i>
+                            <span>Linux</span>
+                            <p>Basic shell scripting and system operations</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>Frontend Development</span>
+                            <p>HTML, CSS, JavaScript, Web Apps, and Project UIs</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                            <p>Flask, Web3, and Blockchain Integration</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>Smart Contracts</span>
+                            <p>Integration with frontend workflows</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="section-container">
+            <h2>Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="experience-content">
+                        <h3>DevOps Intern</h3>
+                        <p class="company">SynchroServe Global Solutions Private Limited</p>
+                        <p class="duration">Mar 2025 - Present · 2 mos</p>
+                        <p class="location">Guntur, Andhra Pradesh, India · On-site</p>
+                        <p class="description">Currently undergoing a hands-on DevOps training at SynchroServe, a partner institute under the National Skill Development Corporation (NSDC).</p>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="experience-content">
+                        <h3>Engineering Intern</h3>
+                        <p class="company">Madblocks Technologies Pvt Ltd</p>
+                        <p class="duration">Dec 18th, 2023 – Apr 18th, 2024</p>
+                        <p class="description">Worked as an Engineering Intern specializing in AI/IoT/Blockchain Technologies. Collaborated with the corporate engineering team, gaining hands-on experience in innovative tech solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="work">
+        <div class="section-container">
+            <h2>Projects</h2>
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-content">
+                        <h3>Blockchain-Based Drug Packaging</h3>
+                        <p class="work-place">Frontend Development</p>
+                        <ul class="work-details">
+                            <li>Developed responsive UI using HTML, CSS, JavaScript</li>
+                            <li>Integrated smart contracts using Truffle & Ganache</li>
+                            <li>Contributed to secure blockchain solution</li>
+                        </ul>
+                        <a href="https://github.com/karthik9441/PHARMATRACE.git" class="repo-link" target="_blank">
+                            View Repository <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-content">
+                        <h3>AWS VPC Architecture Deployment</h3>
+                        <p class="work-place">AWS Infrastructure</p>
+                        <ul class="work-details">
+                            <li>Designed custom VPC with public/private subnets</li>
+                            <li>Implemented routing via NAT & Internet Gateways</li>
+                            <li>Managed EC2 using Bastion host for secure access</li>
+                        </ul>
+                        <a href="https://www.linkedin.com/posts/karthikgudavalli_aws-devops-cloudcomputing-activity-7315327365658681344-fD2E" class="repo-link" target="_blank">
+                            View Post <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-content">
+                        <h3>Static Website Hosting</h3>
+                        <p class="work-place">AWS Services Integration</p>
+                        <ul class="work-details">
+                            <li>Integrated GoDaddy domain with AWS Route 53</li>
+                            <li>Hosted static site on S3 with ACM (HTTPS)</li>
+                            <li>Optimized delivery using CloudFront CDN</li>
+                        </ul>
+                        <a href="https://www.linkedin.com/posts/karthikgudavalli_aws-s3-route53-activity-7315349420210851842-QViF" class="repo-link" target="_blank">
+                            View Post <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-content">
+                        <h3>MySQL RDS & EC2 Integration</h3>
+                        <p class="work-place">AWS Networking</p>
+                        <ul class="work-details">
+                            <li>Created secure connection between EC2 and MySQL RDS</li>
+                            <li>Implemented private connectivity in custom VPC</li>
+                            <li>Enhanced understanding of AWS networking</li>
+                        </ul>
+                        <a href="https://www.linkedin.com/posts/karthikgudavalli_aws-vpc-ec2-activity-7316339111252971520-nNZO" class="repo-link" target="_blank">
+                            View Post <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-content">
+                        <h3>Node.js Web App in Docker</h3>
+                        <p class="work-place">Containerization</p>
+                        <ul class="work-details">
+                            <li>Containerized Node.js application</li>
+                            <li>Created custom Docker image</li>
+                            <li>Successfully deployed in Docker container</li>
+                        </ul>
+                        <a href="https://www.linkedin.com/posts/karthikgudavalli_docker-nodejs-devopsjourney-activity-7317762207499317248-q7qa" class="repo-link" target="_blank">
+                            View Post <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-content">
+                        <h3>Docker Volume Demo</h3>
+                        <p class="work-place">Container Management</p>
+                        <ul class="work-details">
+                            <li>Created and mounted Docker volumes</li>
+                            <li>Built custom Nginx image serving static HTML</li>
+                            <li>Hosted on EC2 and pushed to Docker Hub</li>
+                        </ul>
+                        <a href="https://www.linkedin.com/posts/karthikgudavalli_docker-volume-image-push-to-docker-hub-activity-7318144548621193216-BxR-" class="repo-link" target="_blank">
+                            View Post <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <div class="section-container">
+            <h2>Education</h2>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>B.Tech in Computer Science</h3>
+                        <p class="institution">Kkr And Ksr Institute of Technology and Sciences (KITS)</p>
+                        <p class="grade">CGPA: 7.71</p>
+                        <span class="date">2024</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Intermediate</h3>
+                        <p class="institution">Sri Chaitanya Junior College, Gorantla</p>
+                        <p class="grade">CGPA: 8.48</p>
+                        <span class="date">2020</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Secondary Education</h3>
+                        <p class="institution">Oxford EM High School</p>
+                        <p class="grade">CGPA: 9.8</p>
+                        <span class="date">2018</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="certifications">
+        <div class="section-container">
+            <h2>Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>AWS Cloud Foundations</h3>
+                        <p>AWS Academy</p>
+                        <span class="cert-date">2024</span>
+                        <a href="https://www.credly.com/badges/31c9b952-cde3-49b1-943e-5dedef108c34/linked_in_profile" class="cert-link" target="_blank">
+                            View Credential <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Python for Data Science</h3>
+                        <p>IBM</p>
+                        <span class="cert-date">2023</span>
+                        <a href="https://www.credly.com/badges/f0740a1e-045d-4b20-b52d-abaebff1c82b/linked_in_profile" class="cert-link" target="_blank">
+                            View Credential <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Azure AI Fundamentals</h3>
+                        <p>Microsoft Certified</p>
+                        <span class="cert-date">Mar 2023</span>
+                        <a href="https://www.credly.com/badges/526ac8c1-02ff-41e4-8611-8831279c62e3/linked_in_profile" class="cert-link" target="_blank">
+                            View Credential <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Data Analytics</h3>
+                        <p>AWS Academy Graduate</p>
+                        <span class="cert-date">2024</span>
+                        <a href="https://www.credly.com/badges/14dd97da-b6ea-44d4-b841-bda5f22ad43f/public_url" class="cert-link" target="_blank">
+                            View Credential <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Java Full Stack</h3>
+                        <p>Wipro TalentNext</p>
+                        <span class="cert-date">2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests" class="interests">
+        <div class="section-container">
+            <h2>Hobbies & Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-shuttlecock"></i>
+                    </div>
+                    <div class="interest-content">
+                        <h3>Sports & Fitness</h3>
+                        <p>Enjoy playing badminton to stay active and maintain a healthy lifestyle. Regular physical activity helps me maintain work-life balance and stay energized.</p>
+                    </div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="interest-content">
+                        <h3>Technology & Innovation</h3>
+                        <p>Passionate about emerging technologies, AI innovations, and cutting-edge gadgets. Always excited to explore and learn about new technological advancements.</p>
+                    </div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <div class="interest-content">
+                        <h3>Continuous Learning</h3>
+                        <p>Dedicated to self-improvement through technical blogs, online courses, and industry certifications. Always eager to expand my knowledge in cloud and DevOps.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:karthikgudavalli7@gmail.com">karthikgudavalli7@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/karthikgudavalli" target="_blank">LinkedIn Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Gudavalli Karthik. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html> 
