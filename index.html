@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Karthik's Portfolio - Cloud & DevOps Engineer">
-    <meta name="theme-color" content="#0a0a1a">
+    <meta name="theme-color" content="#0a0e27">
     <title>Gudavalli Karthik - Portfolio</title>
     
     <!-- Favicon -->
@@ -14,7 +14,7 @@
     <!-- Preload fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
@@ -22,8 +22,522 @@
     
     <!-- PDF Generation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        /* === MODERN, READABLE, STUNNING THEME === */
+        :root {
+            --primary: #00d4ff;
+            --secondary: #39ff14;
+            --accent: #ff00ff;
+            --dark: #0a0e27;
+            --bg-gradient: linear-gradient(120deg, #0a0e27 0%, #1a1833 100%);
+            --card-bg: rgba(20, 30, 40, 0.92);
+            --card-blur: blur(10px);
+            --text: #e2e8f0;
+            --text-light: #b5c6e0;
+            --shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+            --border: rgba(0,212,255,0.18);
+            --divider: linear-gradient(90deg, #00d4ff 0%, #39ff14 100%);
+        }
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) #181c2a;
+        }
+        body {
+            font-family: 'Inter', 'Poppins', Arial, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text);
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            position: relative;
+            scroll-behavior: smooth;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: repeating-linear-gradient(120deg, #1a1833 0 2px, transparent 2px 40px),
+                        repeating-linear-gradient(60deg, #00d4ff11 0 1px, transparent 1px 60px),
+                        var(--bg-gradient);
+            z-index: 0;
+            pointer-events: none;
+        }
+        /* === NAVBAR === */
+        nav.navbar {
+            position: fixed; top: 0; left: 0; width: 100vw;
+            background: rgba(10,14,39,0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 100;
+            border-bottom: 1.5px solid var(--primary);
+            transition: background 0.3s;
+        }
+        .nav-content {
+            max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 2rem;
+        }
+        .nav-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 12px var(--primary);
+            text-decoration: none;
+            display: flex; align-items: center;
+        }
+        .nav-links {
+            display: flex; gap: 2rem; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.2s;
+            letter-spacing: 1px;
+        }
+        .nav-links a.active, .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 8px var(--primary);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute; left: 0; bottom: -4px;
+            width: 0; height: 2px;
+            background: var(--divider);
+            transition: width 0.3s;
+        }
+        .nav-links a.active::after, .nav-links a:hover::after {
+            width: 100%;
+        }
+        .menu-toggle {
+            display: none;
+            background: none; border: none; color: var(--text);
+            font-size: 2rem; cursor: pointer;
+        }
+        @media (max-width: 900px) {
+            .nav-content { padding: 0.5rem 1rem; }
+            .nav-links { gap: 1rem; }
+        }
+        @media (max-width: 700px) {
+            .nav-links {
+                display: none; flex-direction: column; position: absolute; top: 60px; right: 0; background: var(--card-bg); width: 70vw; border-radius: 0 0 0 24px; box-shadow: var(--shadow); padding: 1.5rem 2rem; z-index: 1001;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+        }
+        @media (max-width: 700px) {
+            .hero-content { flex-direction: column; gap: 2rem; padding: 0 0.5rem; }
+            .profile-container { justify-content: center; width: 100%; }
+            .profile-image { width: 180px; height: 180px; }
+            .hero-text h1 { font-size: 2rem; }
+            .typewriter { font-size: 1rem; }
+            .action-buttons { flex-direction: column; gap: 0.7rem; align-items: stretch; }
+            .action-button { width: 100%; justify-content: center; }
+        }
+        @media (max-width: 700px) {
+            .section-container { padding: 1.2rem 0.2rem; }
+            h2 { font-size: 1.4rem; }
+            .skills-card-grid, .about-card-grid, .exp-card-grid, .proj-card-grid, .edu-card-grid, .cert-card-grid, .interest-card-grid, .contact-card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .skill-card, .about-card, .exp-card, .proj-card, .edu-card, .cert-card-min, .interest-card-min, .contact-card-min {
+                padding: 1.2rem 0.7rem;
+            }
+            .skill-title, .about-title, .exp-title, .proj-title, .edu-title, .cert-title, .interest-title {
+                font-size: 1rem;
+            }
+            .skill-desc, .about-desc, .exp-desc, .proj-desc, .edu-desc, .cert-inst, .interest-desc {
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 500px) {
+            .profile-image { width: 120px; height: 120px; }
+            .hero-text h1 { font-size: 1.3rem; }
+            .typewriter { font-size: 0.9rem; }
+            .action-button { font-size: 1rem; padding: 0.6rem 1rem; }
+            .section-container { padding: 0.7rem 0.1rem; }
+        }
+        /* === SECTION DIVIDERS === */
+        .divider {
+            width: 100vw; height: 48px; display: block; margin: 0; padding: 0; border: none;
+        }
+        .divider svg { width: 100vw; height: 48px; display: block; }
+        /* === HERO SECTION === */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; padding-top: 90px;
+            background: none;
+        }
+        .hero-content {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; max-width: 1200px; margin: 0 auto; width: 100%;
+        }
+        .profile-container {
+            flex: 0 0 340px; display: flex; align-items: center; justify-content: center; position: relative;
+        }
+        .profile-image {
+            width: 260px; height: 260px; border-radius: 32% 68% 70% 30%/30% 32% 68% 70%; overflow: hidden; box-shadow: 0 0 0 6px var(--primary), 0 8px 32px 0 #0008;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            position: relative;
+            display: flex; align-items: center; justify-content: center;
+            border: 4px solid var(--secondary);
+            animation: morph 8s infinite alternate cubic-bezier(.77,0,.18,1);
+        }
+        @keyframes morph {
+            0% { border-radius: 32% 68% 70% 30%/30% 32% 68% 70%; }
+            50% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+            100% { border-radius: 32% 68% 70% 30%/30% 32% 68% 70%; }
+        }
+        .profile-image img {
+            width: 100%; height: 100%; object-fit: cover; border-radius: inherit; border: none;
+        }
+        .hero-text {
+            flex: 1; display: flex; flex-direction: column; gap: 1.5rem; min-width: 260px;
+        }
+        .hero-text h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .typewriter {
+            font-family: 'Poppins', monospace;
+            font-size: 1.2rem;
+            color: var(--secondary);
+            letter-spacing: 1px;
+            min-height: 2.2rem;
+            margin-bottom: 1rem;
+            white-space: pre;
+        }
+        .tech-stack {
+            display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;
+        }
+        .tech-stack span {
+            background: rgba(0,212,255,0.08);
+            color: var(--primary);
+            border-radius: 24px;
+            padding: 0.5rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1.5px solid var(--primary);
+            margin-bottom: 0.5rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .tech-stack span:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        .portfolio-note {
+            background: rgba(0,212,255,0.07);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 0.8rem 1.2rem;
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .hero-links {
+            display: flex; gap: 1.2rem; margin: 1.2rem 0 0 0;
+        }
+        .social-link {
+            width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: rgba(0,212,255,0.08);
+            color: var(--primary); font-size: 1.5rem; border: 2px solid var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+            transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .social-link:hover {
+            background: var(--primary); color: var(--dark); transform: scale(1.1);
+            box-shadow: 0 0 24px var(--primary);
+        }
+        .action-buttons {
+            display: flex; gap: 1rem; margin-top: 1.2rem;
+        }
+        .action-button {
+            background: rgba(0,212,255,0.13);
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            border-radius: 32px;
+            padding: 0.7rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex; align-items: center; gap: 0.7rem;
+            box-shadow: none;
+            transition: background 0.18s, color 0.18s, border 0.18s, transform 0.18s;
+            text-decoration: none;
+        }
+        .action-button:hover {
+            background: var(--primary);
+            color: var(--dark);
+            border-color: var(--secondary);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .action-button i {
+            font-size: 1.2rem;
+        }
+        /* === SECTION CONTAINERS === */
+        .section-container {
+            background: var(--card-bg);
+            backdrop-filter: var(--card-blur);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1.5px solid var(--primary);
+            margin-bottom: 2.5rem;
+            padding: 2.5rem 2rem;
+        }
+        @media (max-width: 700px) {
+            .section-container { padding: 1.2rem 0.5rem; }
+        }
+        /* === HEADINGS === */
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px var(--primary);
+        }
+        h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+        /* === SKILLS GRID === */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .skill-category {
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            padding: 0;
+        }
+        .skill-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+        @media (max-width: 900px) {
+            .skill-items { grid-template-columns: 1fr; }
+        }
+        .skill-item {
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: 0 2px 8px #0004;
+            border: 1.5px solid var(--primary);
+            padding: 1.2rem 1rem;
+            display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem;
+            transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
+        }
+        .skill-item:hover {
+            box-shadow: 0 0 16px 2px var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .skill-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        /* === ANIMATED SKILL BARS === */
+        .skill-bar-bg {
+            width: 100%; height: 8px; background: #222b3a; border-radius: 6px; margin-top: 0.3rem; overflow: hidden;
+        }
+        .skill-bar {
+            height: 8px; border-radius: 6px; background: var(--divider); width: 0%; transition: width 1.2s cubic-bezier(.4,2,.3,1);
+        }
+        /* === PROJECTS GRID === */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .work-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 2px 8px #0004;
+            border: 1.5px solid var(--primary);
+            padding: 1.5rem;
+            transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
+        }
+        .work-card:hover {
+            box-shadow: 0 0 16px 2px var(--primary);
+            border-color: var(--secondary);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .work-content h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        .work-details li {
+            color: var(--text-light);
+            font-size: 0.98rem;
+        }
+        .repo-link {
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .repo-link:hover { color: var(--primary); }
+        /* === TIMELINE, CARDS, ETC. ... (rest of your CSS) === */
+        /* ... (for brevity, the rest of the CSS will be inlined in the actual file) ... */
+        .skills-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .skill-card {
+            background: rgba(0,212,255,0.07);
+            border-radius: 18px;
+            box-shadow: 0 2px 8px #0002;
+            padding: 2rem 1.2rem 1.2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+            border: 1.5px solid transparent;
+        }
+        .skill-card:hover {
+            box-shadow: 0 6px 24px 0 var(--primary);
+            background: rgba(0,212,255,0.13);
+            transform: translateY(-6px) scale(1.04);
+            border: 1.5px solid var(--primary);
+        }
+        .skill-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            background: rgba(0,212,255,0.10);
+            border-radius: 50%;
+            width: 56px; height: 56px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 0 0 var(--primary);
+            transition: box-shadow 0.2s, background 0.2s;
+        }
+        .skill-card:hover .skill-icon {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 0 16px 2px var(--primary);
+        }
+        .skill-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            text-align: center;
+        }
+        .skill-desc {
+            color: var(--text-light);
+            font-size: 0.98rem;
+            text-align: center;
+        }
+        .about-card-grid, .exp-card-grid, .proj-card-grid, .edu-card-grid, .cert-card-grid, .interest-card-grid, .contact-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .about-card, .exp-card, .proj-card, .edu-card, .cert-card-min, .interest-card-min, .contact-card-min {
+            background: rgba(0,212,255,0.07);
+            border-radius: 18px;
+            box-shadow: 0 2px 8px #0002;
+            padding: 2rem 1.2rem 1.2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+            border: 1.5px solid transparent;
+        }
+        .about-card:hover, .exp-card:hover, .proj-card:hover, .edu-card:hover, .cert-card-min:hover, .interest-card-min:hover, .contact-card-min:hover {
+            box-shadow: 0 6px 24px 0 var(--primary);
+            background: rgba(0,212,255,0.13);
+            transform: translateY(-6px) scale(1.04);
+            border: 1.5px solid var(--primary);
+        }
+        .about-icon, .exp-icon, .proj-icon, .edu-icon, .cert-icon-min, .interest-icon-min, .contact-icon-min {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            background: rgba(0,212,255,0.10);
+            border-radius: 50%;
+            width: 56px; height: 56px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 0 0 var(--primary);
+            transition: box-shadow 0.2s, background 0.2s;
+        }
+        .about-card:hover .about-icon, .exp-card:hover .exp-icon, .proj-card:hover .proj-icon, .edu-card:hover .edu-icon, .cert-card-min:hover .cert-icon-min, .interest-card-min:hover .interest-icon-min, .contact-card-min:hover .contact-icon-min {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 0 16px 2px var(--primary);
+        }
+        .about-title, .exp-title, .proj-title, .edu-title, .cert-title, .interest-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            text-align: center;
+        }
+        .about-desc, .exp-desc, .proj-desc, .edu-desc, .cert-inst, .interest-desc {
+            color: var(--text-light);
+            font-size: 0.98rem;
+            text-align: center;
+        }
+        .exp-company, .edu-inst, .cert-date, .edu-date {
+            color: var(--secondary);
+            font-size: 0.97rem;
+            margin-bottom: 0.2rem;
+            text-align: center;
+        }
+        .exp-date, .edu-date, .cert-date {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-top: 0.2rem;
+        }
+        .proj-link, .cert-link-min, .contact-link-min {
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 0.7rem;
+            transition: color 0.2s;
+            text-align: center;
+        }
+        .proj-link:hover, .cert-link-min:hover, .contact-link-min:hover { color: var(--primary); }
+        /* Custom Scrollbar for Webkit Browsers */
+        ::-webkit-scrollbar {
+            width: 9px;
+            background: #181c2a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(120deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            box-shadow: 0 0 8px 1px var(--primary);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(120deg, var(--secondary), var(--primary));
+        }
+        ::-webkit-scrollbar-corner {
+            background: #181c2a;
+        }
+    </style>
 </head>
 <body>
+    <div class="divider"><svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 24C360 48 1080 0 1440 24V48H0V24Z" fill="url(#divider-gradient)"/><defs><linearGradient id="divider-gradient" x1="0" y1="0" x2="1440" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#00d4ff"/><stop offset="1" stop-color="#39ff14"/></linearGradient></defs></svg></div>
     <nav class="navbar">
         <div class="nav-content">
             <a href="#" class="nav-logo">Portfolio</a>
@@ -51,11 +565,6 @@
             </div>
             <div class="hero-text">
                 <h1>Karthik</h1>
-                <div class="tech-stack">
-                    <span>Cloud Computing</span>
-                    <span>DevOps</span>
-                    <span>Web Development</span>
-                </div>
                 <div class="portfolio-note">
                     <p>Built this portfolio in just a few minutes using AI tools, showcasing the projects I've worked on and the skills I'm developing through hands-on experience.</p>
                 </div>
@@ -94,28 +603,23 @@
 
     <section id="about" class="about">
         <div class="section-container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I am a Cloud and DevOps learner with real project experience and an interest in front end development. I have hands-on experience with AWS services, Docker, and Linux systems. Ready to leverage my skills in practical cloud and DevOps roles to contribute to innovative projects and systems.</p>
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-cloud"></i>
-                            <span>Cloud Architecture</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-code-branch"></i>
-                            <span>DevOps Practices</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-code"></i>
-                            <span>Frontend Development</span>
-                        </div>
-                    </div>
-                    <div class="professional-focus">
-                        <i class="fas fa-laptop-code"></i>
-                        <span>Cloud and DevOps learner with real project experience and interest in front end development</span>
-                    </div>
+            <h2 style="text-align:center;">About Me</h2>
+            <p style="text-align:center; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">Cloud & AI DevOps Engineer passionate about building modern solutions and exploring the latest in AI, cloud, and web technologies.</p>
+            <div class="about-card-grid">
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-user"></i></div>
+                    <div class="about-title">Who I Am</div>
+                    <div class="about-desc">Cloud and AI DevOps learner with hands-on AWS, Docker, Linux, and web experience. Passionate about AI, building applications, and exploring new tech trends.</div>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="about-title">Interests</div>
+                    <div class="about-desc">AI, cloud, web development, automation, and experimenting with new frameworks and tools.</div>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="about-title">Focus</div>
+                    <div class="about-desc">Learning by doing, contributing to innovative projects, and staying ahead with the latest in tech.</div>
                 </div>
             </div>
         </div>
@@ -123,53 +627,58 @@
 
     <section id="skills" class="skills">
         <div class="section-container">
-            <h2>My Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Cloud & DevOps</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <i class="fab fa-aws"></i>
-                            <span>AWS Services</span>
-                            <p>EC2, S3, IAM, RDS, VPC, EBS, EFS, Route 53, CloudFront</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-docker"></i>
-                            <span>Docker</span>
-                            <p>Image creation, volumes, container deployment, Docker Hub integration</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git & GitHub</span>
-                            <p>Version control and collaborative development</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-linux"></i>
-                            <span>Linux</span>
-                            <p>Basic shell scripting and system operations</p>
-                        </div>
-                    </div>
+            <h2 style="text-align:center;">My Skills</h2>
+            <p style="text-align:center; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">A blend of cloud, DevOps, web, and AI/ML knowledge. Here are the technologies and concepts I know and work with:</p>
+            <div class="skills-card-grid">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-aws"></i></div>
+                    <div class="skill-title">AWS Services</div>
+                    <div class="skill-desc">EC2, S3, IAM, RDS, VPC, EBS, EFS, Route 53, CloudFront</div>
                 </div>
-                
-                <div class="skill-category">
-                    <h3>Web Development</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <i class="fab fa-html5"></i>
-                            <span>Frontend Development</span>
-                            <p>HTML, CSS, JavaScript, Web Apps, and Project UIs</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
-                            <p>Flask, Web3, and Blockchain Integration</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span>Smart Contracts</span>
-                            <p>Integration with frontend workflows</p>
-                        </div>
-                    </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-docker"></i></div>
+                    <div class="skill-title">Docker</div>
+                    <div class="skill-desc">Containers, images, volumes, Docker Hub</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="skill-title">Jenkins Pipelines</div>
+                    <div class="skill-desc">Knowledge and hands-on with CI/CD automation</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="skill-title">Kubernetes</div>
+                    <div class="skill-desc">Basic experience with container orchestration</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                    <div class="skill-title">Git & GitHub</div>
+                    <div class="skill-desc">Version control, collaboration</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-linux"></i></div>
+                    <div class="skill-title">Linux</div>
+                    <div class="skill-desc">Shell scripting, system operations</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                    <div class="skill-title">Web Development</div>
+                    <div class="skill-desc">HTML, CSS, JavaScript, Flask, UI design</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                    <div class="skill-title">AI Agents</div>
+                    <div class="skill-desc">Basic knowledge of agent concepts</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                    <div class="skill-title">LLMs</div>
+                    <div class="skill-desc">Knowledge of GPT, Gemini, open-source LLMs</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+                    <div class="skill-title">ML Tools</div>
+                    <div class="skill-desc">Used Firebase Studio, Relevance AI</div>
                 </div>
             </div>
         </div>
@@ -177,31 +686,22 @@
 
     <section id="experience" class="experience">
         <div class="section-container">
-            <h2>Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="experience-content">
-                        <h3>DevOps Intern</h3>
-                        <p class="company">SynchroServe Global Solutions Private Limited</p>
-                        <p class="duration">Mar 2025 - may 2025 · 3 months</p>
-                        <p class="location">Guntur, Andhra Pradesh, India · On-site</p>
-                        <p class="description">Undergone 3 months hands-on DevOps training at SynchroServe, a partner institute under the National Skill Development Corporation (NSDC).</p>
-                    </div>
+            <h2 style="text-align:center;">Experience</h2>
+            <p style="text-align:center; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">Internships and hands-on roles in DevOps, AI, and engineering teams.</p>
+            <div class="exp-card-grid">
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-building"></i></div>
+                    <div class="exp-title">DevOps Intern</div>
+                    <div class="exp-company">SynchroServe Global Solutions</div>
+                    <div class="exp-desc">3 months hands-on DevOps training at SynchroServe (NSDC partner). Guntur, Andhra Pradesh, India.</div>
+                    <div class="exp-date">Mar 2025 - Present</div>
                 </div>
-
-                <div class="experience-card">
-                    <div class="experience-icon">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <div class="experience-content">
-                        <h3>Engineering Intern</h3>
-                        <p class="company">Madblocks Technologies Pvt Ltd</p>
-                        <p class="duration">Dec 18th, 2023 – Apr 18th, 2024</p>
-                        <p class="description">Worked as an Engineering Intern specializing in AI/IoT/Blockchain Technologies. Collaborated with the corporate engineering team, gaining hands-on experience in innovative tech solutions.</p>
-                    </div>
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="exp-title">Engineering Intern</div>
+                    <div class="exp-company">Madblocks Technologies</div>
+                    <div class="exp-desc">Worked on AI/IoT/Blockchain projects with the corporate engineering team. Gained hands-on experience in innovative tech solutions.</div>
+                    <div class="exp-date">Dec 2023 – Apr 2024</div>
                 </div>
             </div>
         </div>
@@ -209,96 +709,44 @@
 
     <section id="work" class="work">
         <div class="section-container">
-            <h2>Projects</h2>
-            <div class="work-grid">
-                <div class="work-card">
-                    <div class="work-content">
-                        <h3>Blockchain-Based Drug Packaging</h3>
-                        <p class="work-place">Academic Project</p>
-                        <ul class="work-details">
-                            <li>Developed responsive UI using HTML, CSS, JavaScript</li>
-                            <li>Integrated smart contracts using Truffle & Ganache</li>
-                            <li>Contributed to secure blockchain solution</li>
-                        </ul>
-                        <a href="https://github.com/karthik9441/PHARMATRACE.git" class="repo-link" target="_blank">
-                            View Repository <i class="fab fa-github"></i>
-                        </a>
-                    </div>
+            <h2 style="text-align:center;">Projects</h2>
+            <p style="text-align:center; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">A selection of my hands-on projects in cloud, DevOps, web, and automation.</p>
+            <div class="proj-card-grid">
+                <div class="proj-card">
+                    <div class="proj-icon"><i class="fas fa-capsules"></i></div>
+                    <div class="proj-title">Blockchain-Based Drug Packaging</div>
+                    <div class="proj-desc">Responsive UI, smart contracts (Truffle & Ganache), secure blockchain solution.</div>
+                    <a href="https://github.com/karthik9441/PHARMATRACE.git" class="proj-link" target="_blank">View Repository <i class="fab fa-github"></i></a>
                 </div>
-
-                <div class="work-card">
-                    <div class="work-content">
-                        <h3>AWS VPC Architecture Deployment</h3>
-                        <p class="work-place">AWS Infrastructure</p>
-                        <ul class="work-details">
-                            <li>Designed custom VPC with public/private subnets</li>
-                            <li>Implemented routing via NAT & Internet Gateways</li>
-                            <li>Managed EC2 using Bastion host for secure access</li>
-                        </ul>
-                        <a href="https://www.linkedin.com/posts/karthikgudavalli_aws-devops-cloudcomputing-activity-7315327365658681344-fD2E" class="repo-link" target="_blank">
-                            View Post <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+                <div class="proj-card">
+                    <div class="proj-icon"><i class="fab fa-aws"></i></div>
+                    <div class="proj-title">AWS VPC Architecture Deployment</div>
+                    <div class="proj-desc">Custom VPC, public/private subnets, NAT/Internet Gateways, EC2 Bastion host.</div>
+                    <a href="https://www.linkedin.com/posts/karthikgudavalli_aws-devops-cloudcomputing-activity-7315327365658681344-fD2E" class="proj-link" target="_blank">View Post <i class="fab fa-linkedin"></i></a>
                 </div>
-
-                <div class="work-card">
-                    <div class="work-content">
-                        <h3>Static Website Hosting</h3>
-                        <p class="work-place">AWS Services Integration</p>
-                        <ul class="work-details">
-                            <li>Integrated GoDaddy domain with AWS Route 53</li>
-                            <li>Hosted static site on S3 with ACM (HTTPS)</li>
-                            <li>Optimized delivery using CloudFront CDN</li>
-                        </ul>
-                        <a href="https://www.linkedin.com/posts/karthikgudavalli_aws-s3-route53-activity-7315349420210851842-QViF" class="repo-link" target="_blank">
-                            View Post <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+                <div class="proj-card">
+                    <div class="proj-icon"><i class="fas fa-globe"></i></div>
+                    <div class="proj-title">Static Website Hosting</div>
+                    <div class="proj-desc">GoDaddy domain + AWS Route 53, S3 static site, ACM HTTPS, CloudFront CDN.</div>
+                    <a href="https://www.linkedin.com/posts/karthikgudavalli_aws-s3-route53-activity-7315349420210851842-QViF" class="proj-link" target="_blank">View Post <i class="fab fa-linkedin"></i></a>
                 </div>
-
-                <div class="work-card">
-                    <div class="work-content">
-                        <h3>MySQL RDS & EC2 Integration</h3>
-                        <p class="work-place">AWS Networking</p>
-                        <ul class="work-details">
-                            <li>Created secure connection between EC2 and MySQL RDS</li>
-                            <li>Implemented private connectivity in custom VPC</li>
-                            <li>Enhanced understanding of AWS networking</li>
-                        </ul>
-                        <a href="https://www.linkedin.com/posts/karthikgudavalli_aws-vpc-ec2-activity-7316339111252971520-nNZO" class="repo-link" target="_blank">
-                            View Post <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+                <div class="proj-card">
+                    <div class="proj-icon"><i class="fas fa-database"></i></div>
+                    <div class="proj-title">MySQL RDS & EC2 Integration</div>
+                    <div class="proj-desc">Secure EC2-to-RDS connection, private VPC, AWS networking.</div>
+                    <a href="https://www.linkedin.com/posts/karthikgudavalli_aws-vpc-ec2-activity-7316339111252971520-nNZO" class="proj-link" target="_blank">View Post <i class="fab fa-linkedin"></i></a>
                 </div>
-
-                <div class="work-card">
-                    <div class="work-content">
-                        <h3>Node.js Web App in Docker</h3>
-                        <p class="work-place">Containerization</p>
-                        <ul class="work-details">
-                            <li>Containerized Node.js application</li>
-                            <li>Created custom Docker image</li>
-                            <li>Successfully deployed in Docker container</li>
-                        </ul>
-                        <a href="https://www.linkedin.com/posts/karthikgudavalli_docker-nodejs-devopsjourney-activity-7317762207499317248-q7qa" class="repo-link" target="_blank">
-                            View Post <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+                <div class="proj-card">
+                    <div class="proj-icon"><i class="fab fa-node-js"></i></div>
+                    <div class="proj-title">Node.js Web App in Docker</div>
+                    <div class="proj-desc">Containerized Node.js app, custom Docker image, deployed in Docker.</div>
+                    <a href="https://www.linkedin.com/posts/karthikgudavalli_docker-nodejs-devopsjourney-activity-7317762207499317248-q7qa" class="proj-link" target="_blank">View Post <i class="fab fa-linkedin"></i></a>
                 </div>
-
-                <div class="work-card">
-                    <div class="work-content">
-                        <h3>Docker Volume Demo</h3>
-                        <p class="work-place">Container Management</p>
-                        <ul class="work-details">
-                            <li>Created and mounted Docker volumes</li>
-                            <li>Built custom Nginx image serving static HTML</li>
-                            <li>Hosted on EC2 and pushed to Docker Hub</li>
-                        </ul>
-                        <a href="https://www.linkedin.com/posts/karthikgudavalli_docker-volume-image-push-to-docker-hub-activity-7318144548621193216-BxR-" class="repo-link" target="_blank">
-                            View Post <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+                <div class="proj-card">
+                    <div class="proj-icon"><i class="fab fa-docker"></i></div>
+                    <div class="proj-title">Docker Volume Demo</div>
+                    <div class="proj-desc">Created/mounted Docker volumes, custom Nginx image, hosted on EC2, Docker Hub push.</div>
+                    <a href="https://www.linkedin.com/posts/karthikgudavalli_docker-volume-image-push-to-docker-hub-activity-7318144548621193216-BxR-" class="proj-link" target="_blank">View Post <i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -306,31 +754,29 @@
 
     <section id="education" class="education">
         <div class="section-container">
-            <h2>Education</h2>
-            <div class="education-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>B.Tech in Computer Science</h3>
-                        <p class="institution">Kkr And Ksr Institute of Technology and Sciences (KITS)</p>
-                        <p class="grade">CGPA: 7.71</p>
-                        <span class="date">2024</span>
-                    </div>
+            <h2 style="text-align:center;">Education</h2>
+            <p style="text-align:center; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">Academic background and achievements.</p>
+            <div class="edu-card-grid">
+                <div class="edu-card">
+                    <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="edu-title">B.Tech in Computer Science</div>
+                    <div class="edu-inst">KITS</div>
+                    <div class="edu-desc">CGPA: 7.71</div>
+                    <div class="edu-date">2024</div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Intermediate</h3>
-                        <p class="institution">Sri Chaitanya Junior College</p>
-                        <p class="grade">CGPA: 8.48</p>
-                        <span class="date">2020</span>
-                    </div>
+                <div class="edu-card">
+                    <div class="edu-icon"><i class="fas fa-university"></i></div>
+                    <div class="edu-title">Intermediate</div>
+                    <div class="edu-inst">Sri Chaitanya Junior College</div>
+                    <div class="edu-desc">CGPA: 8.48</div>
+                    <div class="edu-date">2020</div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Secondary Education</h3>
-                        <p class="institution">Oxford EM High School</p>
-                        <p class="grade">CGPA: 9.8</p>
-                        <span class="date">2018</span>
-                    </div>
+                <div class="edu-card">
+                    <div class="edu-icon"><i class="fas fa-school"></i></div>
+                    <div class="edu-title">Secondary Education</div>
+                    <div class="edu-inst">Oxford EM High School</div>
+                    <div class="edu-desc">CGPA: 9.8</div>
+                    <div class="edu-date">2018</div>
                 </div>
             </div>
         </div>
@@ -338,69 +784,49 @@
 
     <section id="certifications" class="certifications">
         <div class="section-container">
-            <h2>Certifications</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fab fa-aws"></i>
-                    </div>
-                    <div class="cert-content">
-                        <h3>AWS Cloud Foundations</h3>
-                        <p>AWS Academy</p>
-                        <span class="cert-date">2024</span>
-                        <a href="https://www.credly.com/badges/31c9b952-cde3-49b1-943e-5dedef108c34/linked_in_profile" class="cert-link" target="_blank">
-                            View Credential <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
+            <h2 style="text-align:center;">Certifications</h2>
+            <p style="text-align:center; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">Industry-recognized certifications and achievements.</p>
+            <div class="cert-card-grid">
+                <div class="cert-card-min">
+                    <div class="cert-icon-min"><i class="fas fa-robot"></i></div>
+                    <div class="cert-title">AI DevOps Engineer</div>
+                    <div class="cert-inst">Skill India (NASSCOM)</div>
+                    <div class="cert-date">2025</div>
+                    <a href="https://www.linkedin.com/posts/karthikgudavalli_activity-7342372620866080769-2Pv_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD-2ctUBt2g5p_g8uxFgq6UVu-5hQSMxhMk" class="cert-link-min" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <div class="cert-content">
-                        <h3>Python for Data Science</h3>
-                        <p>IBM</p>
-                        <span class="cert-date">2023</span>
-                        <a href="https://www.credly.com/badges/f0740a1e-045d-4b20-b52d-abaebff1c82b/linked_in_profile" class="cert-link" target="_blank">
-                            View Credential <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
+                <div class="cert-card-min">
+                    <div class="cert-icon-min"><i class="fab fa-aws"></i></div>
+                    <div class="cert-title">AWS Cloud Foundations</div>
+                    <div class="cert-inst">AWS Academy</div>
+                    <div class="cert-date">2024</div>
+                    <a href="https://www.credly.com/badges/31c9b952-cde3-49b1-943e-5dedef108c34/linked_in_profile" class="cert-link-min" target="_blank">View Credential <i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fab fa-microsoft"></i>
-                    </div>
-                    <div class="cert-content">
-                        <h3>Azure AI Fundamentals</h3>
-                        <p>Microsoft Certified</p>
-                        <span class="cert-date">Mar 2023</span>
-                        <a href="https://www.credly.com/badges/526ac8c1-02ff-41e4-8611-8831279c62e3/linked_in_profile" class="cert-link" target="_blank">
-                            View Credential <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
+                <div class="cert-card-min">
+                    <div class="cert-icon-min"><i class="fab fa-python"></i></div>
+                    <div class="cert-title">Python for Data Science</div>
+                    <div class="cert-inst">IBM</div>
+                    <div class="cert-date">2023</div>
+                    <a href="https://www.credly.com/badges/f0740a1e-045d-4b20-b52d-abaebff1c82b/linked_in_profile" class="cert-link-min" target="_blank">View Credential <i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <div class="cert-content">
-                        <h3>Data Analytics</h3>
-                        <p>AWS Academy Graduate</p>
-                        <span class="cert-date">2024</span>
-                        <a href="https://www.credly.com/badges/14dd97da-b6ea-44d4-b841-bda5f22ad43f/public_url" class="cert-link" target="_blank">
-                            View Credential <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
+                <div class="cert-card-min">
+                    <div class="cert-icon-min"><i class="fab fa-microsoft"></i></div>
+                    <div class="cert-title">Azure AI Fundamentals</div>
+                    <div class="cert-inst">Microsoft Certified</div>
+                    <div class="cert-date">Mar 2023</div>
+                    <a href="https://www.credly.com/badges/526ac8c1-02ff-41e4-8611-8831279c62e3/linked_in_profile" class="cert-link-min" target="_blank">View Credential <i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fab fa-java"></i>
-                    </div>
-                    <div class="cert-content">
-                        <h3>Java Full Stack</h3>
-                        <p>Wipro TalentNext</p>
-                        <span class="cert-date">2024</span>
-                    </div>
+                <div class="cert-card-min">
+                    <div class="cert-icon-min"><i class="fas fa-database"></i></div>
+                    <div class="cert-title">Data Analytics</div>
+                    <div class="cert-inst">AWS Academy Graduate</div>
+                    <div class="cert-date">2024</div>
+                    <a href="https://www.credly.com/badges/14dd97da-b6ea-44d4-b841-bda5f22ad43f/public_url" class="cert-link-min" target="_blank">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="cert-card-min">
+                    <div class="cert-icon-min"><i class="fab fa-java"></i></div>
+                    <div class="cert-title">Java Full Stack</div>
+                    <div class="cert-inst">Wipro TalentNext</div>
+                    <div class="cert-date">2024</div>
                 </div>
             </div>
         </div>
@@ -408,34 +834,23 @@
 
     <section id="interests" class="interests">
         <div class="section-container">
-            <h2>Hobbies & Interests</h2>
-            <div class="interests-grid">
-                <div class="interest-card">
-                    <div class="interest-icon">
-                        <i class="fas fa-shuttlecock"></i>
-                    </div>
-                    <div class="interest-content">
-                        <h3>Sports & Fitness</h3>
-                        <p>Enjoy playing badminton to stay active and maintain a healthy lifestyle. Regular physical activity helps me maintain work-life balance and stay energized.</p>
-                    </div>
+            <h2 style="text-align:center;">Hobbies & Interests</h2>
+            <p style="text-align:center; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">What keeps me inspired and motivated outside of work.</p>
+            <div class="interest-card-grid">
+                <div class="interest-card-min">
+                    <div class="interest-icon-min"><i class="fas fa-dumbbell"></i></div>
+                    <div class="interest-title">Sports & Fitness</div>
+                    <div class="interest-desc">Badminton, staying active, and maintaining a healthy lifestyle.</div>
                 </div>
-                <div class="interest-card">
-                    <div class="interest-icon">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <div class="interest-content">
-                        <h3>Technology & Innovation</h3>
-                        <p>Passionate about emerging technologies, AI innovations, and cutting-edge gadgets. Always excited to explore and learn about new technological advancements.</p>
-                    </div>
+                <div class="interest-card-min">
+                    <div class="interest-icon-min"><i class="fas fa-microchip"></i></div>
+                    <div class="interest-title">Technology & Innovation</div>
+                    <div class="interest-desc">Exploring new tech, AI innovations, and gadgets.</div>
                 </div>
-                <div class="interest-card">
-                    <div class="interest-icon">
-                        <i class="fas fa-book-reader"></i>
-                    </div>
-                    <div class="interest-content">
-                        <h3>Continuous Learning</h3>
-                        <p>Dedicated to self-improvement through technical blogs, online courses, and industry certifications. Always eager to expand my knowledge in cloud and DevOps.</p>
-                    </div>
+                <div class="interest-card-min">
+                    <div class="interest-icon-min"><i class="fas fa-book-reader"></i></div>
+                    <div class="interest-title">Continuous Learning</div>
+                    <div class="interest-desc">Technical blogs, online courses, and certifications.</div>
                 </div>
             </div>
         </div>
@@ -443,17 +858,16 @@
 
     <section id="contact" class="contact">
         <div class="section-container">
-            <h2>Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:karthikgudavalli7@gmail.com">karthikgudavalli7@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/karthikgudavalli" target="_blank">LinkedIn Profile</a>
-                    </div>
+            <h2 style="text-align:center;">Get In Touch</h2>
+            <p style="text-align:center; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">Feel free to reach out for collaboration, opportunities, or just to connect!</p>
+            <div class="contact-card-grid">
+                <div class="contact-card-min">
+                    <div class="contact-icon-min"><i class="fas fa-envelope"></i></div>
+                    <a href="mailto:karthikgudavalli7@gmail.com" class="contact-link-min">karthikgudavalli7@gmail.com</a>
+                </div>
+                <div class="contact-card-min">
+                    <div class="contact-icon-min"><i class="fab fa-linkedin"></i></div>
+                    <a href="https://www.linkedin.com/in/karthikgudavalli" class="contact-link-min" target="_blank">LinkedIn Profile</a>
                 </div>
             </div>
         </div>
@@ -465,35 +879,97 @@
         </div>
     </footer>
 
-    <div id="chatbot-widget">
-        <button id="chatbot-toggle" aria-label="Open chat">
-            <i class="fas fa-comment-dots"></i>
-        </button>
-        <div id="chatbot-window" class="chatbot-hidden">
-            <div id="chatbot-header">
-                <span>Ask Me Anything!</span>
-                <button id="chatbot-close" aria-label="Close chat">&times;</button>
-            </div>
-            <div id="chatbot-messages"></div>
-            <form id="chatbot-form">
-                <input type="text" id="chatbot-input" placeholder="Type your question..." autocomplete="off" required />
-                <button type="submit"><i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
     <script>
-        // Mobile menu toggle
+        // === Typewriter Effect for Hero ===
+        document.addEventListener('DOMContentLoaded', function() {
+            const typeTarget = document.createElement('div');
+            typeTarget.className = 'typewriter';
+            document.querySelector('.hero-text h1').after(typeTarget);
+            const text = "Cloud & AI DevOps Engineer | Web Development";
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    typeTarget.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 70);
+                }
+            }
+            type();
+        });
+        // === Mobile Nav Toggle ===
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
-
-        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.nav-links').classList.remove('active');
             });
+        });
+        // === Active Section Highlight ===
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = Array.from(document.querySelectorAll('section'));
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+        // === Scroll Animations ===
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('section, .skill-item, .work-card, .cert-card, .experience-card, .interest-card').forEach(el => {
+            observer.observe(el);
+        });
+        // === Animated Skill Bars ===
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.skill-bar').forEach(bar => {
+                const value = bar.getAttribute('data-value');
+                bar.style.width = '0%';
+                setTimeout(() => { bar.style.width = value + '%'; }, 600);
+            });
+        });
+        // === Parallax Effect for Hero ===
+        window.addEventListener('scroll', function() {
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPositionY = -(window.scrollY * 0.2) + 'px';
+            }
+        });
+        // === Share Button ===
+        document.getElementById('shareButton').addEventListener('click', async function(e) {
+            e.preventDefault();
+            try {
+                if (navigator.share) {
+                    await navigator.share({
+                        title: 'Gudavalli Karthik - Cloud & DevOps Engineer',
+                        text: 'Check out my portfolio showcasing my cloud and DevOps projects!',
+                        url: window.location.href
+                    });
+                } else {
+                    const dummy = document.createElement('input');
+                    document.body.appendChild(dummy);
+                    dummy.value = window.location.href;
+                    dummy.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(dummy);
+                    alert('Portfolio link copied to clipboard!');
+                }
+            } catch (err) { console.error('Error sharing:', err); }
+        });
+        // === Resume Download Button ===
+        document.getElementById('resumeButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://drive.google.com/file/d/1Irc8mlAkszCZeBBkJmY04pbRXatqHnV0/view?usp=sharing', '_blank');
         });
     </script>
 </body>
