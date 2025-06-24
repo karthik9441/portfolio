@@ -266,4 +266,104 @@ async function handleResumeDownload(e) {
     } catch (error) {
         console.error('Error downloading resume:', error);
     }
-} 
+}
+
+// === Chatbot Logic ===
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbotWindow = document.getElementById('chatbot-window');
+const chatbotClose = document.getElementById('chatbot-close');
+const chatbotForm = document.getElementById('chatbot-form');
+const chatbotInput = document.getElementById('chatbot-input');
+const chatbotMessages = document.getElementById('chatbot-messages');
+
+function addChatMessage(message, sender = 'bot') {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `chatbot-message ${sender}`;
+    msgDiv.textContent = message;
+    chatbotMessages.appendChild(msgDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+function getPortfolioResponse(question) {
+    const q = question.toLowerCase();
+    // About
+    if (q.includes('name') || q.includes('who are you')) {
+        return "I'm Gudavalli Karthik, a Cloud & DevOps Engineer.";
+    }
+    if (q.includes('email') || q.includes('contact')) {
+        return "You can reach me at karthikgudavalli7@gmail.com or via LinkedIn.";
+    }
+    if (q.includes('linkedin')) {
+        return "Here's my LinkedIn: https://www.linkedin.com/in/karthikgudavalli";
+    }
+    if (q.includes('github')) {
+        return "Check out my GitHub: https://github.com/karthik9441";
+    }
+    if (q.includes('skills') || q.includes('technologies')) {
+        return "My skills include AWS, Docker, Linux, Git, HTML, CSS, JavaScript, Python, Flask, Web3, and more.";
+    }
+    if (q.includes('projects') || q.includes('work')) {
+        return "Some of my projects: Blockchain-Based Drug Packaging, AWS VPC Deployment, Static Website Hosting, Node.js in Docker, and more. Ask about any for details!";
+    }
+    if (q.includes('experience') || q.includes('intern')) {
+        return "I've interned at SynchroServe (DevOps) and Madblocks Technologies (AI/IoT/Blockchain).";
+    }
+    if (q.includes('education') || q.includes('study') || q.includes('college')) {
+        return "I completed my B.Tech in Computer Science at KITS, with a CGPA of 7.71.";
+    }
+    if (q.includes('certification') || q.includes('certifications')) {
+        return "I hold certifications in AWS Cloud Foundations, Python for Data Science (IBM), Azure AI Fundamentals, Data Analytics, and Java Full Stack.";
+    }
+    if (q.includes('hobbies') || q.includes('interests')) {
+        return "My hobbies include playing badminton, exploring technology, and continuous learning.";
+    }
+    if (q.includes('resume')) {
+        return "You can download my resume using the 'Download Resume' button on the homepage.";
+    }
+    // Greetings
+    if (q.match(/\b(hi|hello|hey|greetings)\b/)) {
+        return "Hello! How can I help you? You can ask about my skills, experience, projects, or anything else.";
+    }
+    // Fallback
+    return null;
+}
+
+function getIntelligentResponse(question) {
+    // Simple fallback for unrelated questions
+    if (question.trim().endsWith('?')) {
+        return "That's an interesting question! My main focus is on my portfolio, but I can try to help if you ask about my skills, experience, or projects.";
+    }
+    return "I'm here to answer questions about my portfolio, skills, experience, and more!";
+}
+
+chatbotToggle.addEventListener('click', () => {
+    chatbotWindow.classList.toggle('chatbot-hidden');
+    if (!chatbotWindow.classList.contains('chatbot-hidden')) {
+        setTimeout(() => chatbotInput.focus(), 200);
+    }
+});
+chatbotClose.addEventListener('click', () => {
+    chatbotWindow.classList.add('chatbot-hidden');
+});
+
+chatbotForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const userMsg = chatbotInput.value.trim();
+    if (!userMsg) return;
+    addChatMessage(userMsg, 'user');
+    chatbotInput.value = '';
+    setTimeout(() => {
+        let response = getPortfolioResponse(userMsg);
+        if (!response) response = getIntelligentResponse(userMsg);
+        addChatMessage(response, 'bot');
+    }, 600);
+});
+
+// Greet on open
+chatbotToggle.addEventListener('click', () => {
+    if (chatbotMessages.childElementCount === 0) {
+        setTimeout(() => {
+            addChatMessage("Hi! I'm your portfolio assistant. Ask me anything about my skills, experience, or projects.");
+        }, 400);
+    }
+}); 
