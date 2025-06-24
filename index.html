@@ -465,6 +465,23 @@
         </div>
     </footer>
 
+    <div id="chatbot-widget">
+        <button id="chatbot-toggle" aria-label="Open chat">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div id="chatbot-window" class="chatbot-hidden">
+            <div id="chatbot-header">
+                <span>Ask Me Anything!</span>
+                <button id="chatbot-close" aria-label="Close chat">&times;</button>
+            </div>
+            <div id="chatbot-messages"></div>
+            <form id="chatbot-form">
+                <input type="text" id="chatbot-input" placeholder="Type your question..." autocomplete="off" required />
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
     <script>
         // Mobile menu toggle
